@@ -28,13 +28,13 @@ const data = {
         {
             label: "Expertise Level",
             data: [95, 90, 85, 80, 85, 90],
-            backgroundColor: "rgba(59, 130, 246, 0.2)",
-            borderColor: "rgba(59, 130, 246, 1)",
+            backgroundColor: "rgba(37, 99, 235, 0.15)",
+            borderColor: "rgba(37, 99, 235, 1)",
             borderWidth: 2,
-            pointBackgroundColor: "rgba(59, 130, 246, 1)",
+            pointBackgroundColor: "rgba(37, 99, 235, 1)",
             pointBorderColor: "#fff",
             pointHoverBackgroundColor: "#fff",
-            pointHoverBorderColor: "rgba(59, 130, 246, 1)",
+            pointHoverBorderColor: "rgba(37, 99, 235, 1)",
         },
     ],
 };
@@ -49,9 +49,9 @@ const options = {
                 color: "rgba(255, 255, 255, 0.1)",
             },
             pointLabels: {
-                color: "#94a3b8",
+                color: "#9ca3af",
                 font: {
-                    size: 12,
+                    size: 13,
                 },
             },
             ticks: {
@@ -65,9 +65,9 @@ const options = {
             display: false,
         },
         tooltip: {
-            backgroundColor: "rgba(15, 23, 42, 0.9)",
-            titleColor: "#f8fafc",
-            bodyColor: "#cbd5e1",
+            backgroundColor: "rgba(20, 20, 27, 0.95)",
+            titleColor: "#e8e9ed",
+            bodyColor: "#9ca3af",
             borderColor: "rgba(255,255,255,0.1)",
             borderWidth: 1,
         },
@@ -77,7 +77,7 @@ const options = {
 
 export function Skills() {
     return (
-        <SectionWrapper id="skills" className="bg-gradient-to-b from-background to-black/50">
+        <SectionWrapper id="skills" className="section-divider">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <motion.div
                     initial={{ opacity: 0, x: -50 }}
@@ -102,11 +102,11 @@ export function Skills() {
                             <p className="text-sm text-muted-foreground">OpenAI, LangChain, TensorFlow, Python</p>
                         </GlassCard>
                         <GlassCard hoverEffect className="p-4">
-                            <h3 className="font-semibold text-blue-400 mb-2">Cloud Infrastructure</h3>
+                            <h3 className="font-semibold text-accent mb-2">Cloud Infrastructure</h3>
                             <p className="text-sm text-muted-foreground">AWS, Vercel, Docker, Supabase</p>
                         </GlassCard>
                         <GlassCard hoverEffect className="p-4">
-                            <h3 className="font-semibold text-purple-400 mb-2">Mobile Cross-Platform</h3>
+                            <h3 className="font-semibold text-secondary mb-2">Mobile Cross-Platform</h3>
                             <p className="text-sm text-muted-foreground">React Native, Expo, Flutter</p>
                         </GlassCard>
                     </div>
@@ -119,7 +119,6 @@ export function Skills() {
                     transition={{ duration: 0.6 }}
                     className="relative h-[400px] w-full flex items-center justify-center p-4"
                 >
-                    <div className="absolute inset-0 bg-primary/5 rounded-full blur-3xl" />
                     <div className="relative w-full max-w-md h-full">
                         <Radar data={data} options={options} />
                     </div>

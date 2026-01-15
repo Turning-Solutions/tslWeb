@@ -9,16 +9,13 @@ export function GlassCard({ children, className, hoverEffect = false, ...props }
     return (
         <div
             className={cn(
-                "glass rounded-2xl p-6 relative overflow-hidden",
-                hoverEffect && "glass-hover cursor-default group",
+                "backdrop-blur-2xl bg-white/5 border border-white/10 shadow-2xl rounded-3xl p-6 relative overflow-hidden",
+                "before:absolute before:inset-0 before:bg-linear-to-br before:from-white/10 before:to-transparent before:opacity-50 before:pointer-events-none",
+                hoverEffect && "transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(99,102,241,0.3)] hover:bg-white/10 hover:border-primary/30 cursor-default group",
                 className
             )}
             {...props}
         >
-            {/* Glow effect on hover */}
-            {hoverEffect && (
-                <div className="absolute -inset-full top-0 block h-full w-1/2 -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-0 group-hover:animate-shine" />
-            )}
             {children}
         </div>
     );

@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { AnimatedBackground } from "@/components/ui/animated-background";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Turing Solutions Limited",
-  description: "Building the future with AI and modern software.",
+  title: "Turing Solutions",
+  description: "Building Intelligent Digital Solutions",
 };
 
 import { Navbar } from "@/components/layout/navbar";
-import { Footer } from "@/components/layout/footer";
 
 export default function RootLayout({
   children,
@@ -18,11 +18,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
-      <body className={`${inter.variable} antialiased selection:bg-primary/30 selection:text-white`}>
+    <html lang="en">
+      <body className={inter.className}>
+        <AnimatedBackground />
         <Navbar />
         {children}
-        <Footer />
       </body>
     </html>
   );
