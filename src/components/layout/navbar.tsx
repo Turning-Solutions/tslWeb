@@ -41,8 +41,8 @@ export function Navbar() {
                     className={cn(
                         "flex items-center justify-between transition-all duration-500",
                         isScrolled
-                            ? "backdrop-blur-2xl bg-black/40 border border-white/10 rounded-full px-6 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
-                            : "backdrop-blur-xl bg-black/20 border-b border-white/5 h-20"
+                            ? "backdrop-blur-3xl bg-black/40 border border-white/10 rounded-full px-6 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.4)] supports-[backdrop-filter]:bg-black/20"
+                            : "backdrop-blur-xl bg-transparent border-b border-transparent h-20"
                     )}
                 >
                     <Link href="/" className="flex items-center gap-2 z-10">

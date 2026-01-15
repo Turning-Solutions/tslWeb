@@ -1,29 +1,23 @@
 "use client";
 
-import React, { Suspense } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
 import { GlassCard } from "@/components/ui/glass-card";
 import { ArrowRight, Code, Sparkles } from "lucide-react";
+import dynamic from 'next/dynamic';
 
-// Dynamically import Spline to avoid SSR issues
-const Spline = React.lazy(() => import("@splinetool/react-spline"));
+const SplineWrapper = dynamic(() => import('./spline-wrapper'), {
+    ssr: false,
+    loading: () => <div className="w-full h-full bg-black" />
+});
 
 export function Hero() {
     return (
         <section className="min-h-screen w-full flex items-center justify-center relative overflow-hidden bg-black">
             {/* 3D Spline Background */}
             <div className="absolute inset-0 z-0">
-                <Suspense
-                    fallback={
-                        <div className="w-full h-full bg-black flex items-center justify-center text-white/20">
-                            Loading 3D Scene...
-                        </div>
-                    }
-                >
-                    <Spline scene="https://prod.spline.design/1ORTHVpPxX9rox2J/scene.splinecode" />
-                </Suspense>
+                <SplineWrapper />
                 {/* Cover Spline Logo */}
                 <div className="absolute bottom-4 right-4 w-48 h-16 bg-black z-50 pointer-events-none select-none" />
             </div>
@@ -48,9 +42,9 @@ export function Hero() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.1 }}
                         >
-                            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-white">
+                            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-white text-shadow">
                                 We Build{" "}
-                                <span className="relative inline-block">
+                                <span className="relative inline-block text-glow">
                                     <span className="text-primary">Intelligent</span>
                                     <span className="absolute -bottom-2 left-0 w-full h-1 bg-primary/30 rounded-full"></span>
                                 </span>
@@ -62,7 +56,7 @@ export function Hero() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.2 }}
-                            className="text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed"
+                            className="text-lg md:text-xl text-gray-200 max-w-2xl leading-relaxed text-shadow font-medium"
                         >
                             From cutting-edge web applications to powerful AI integrations, we transform complex business challenges into elegant, scalable software.
                         </motion.p>
@@ -91,7 +85,7 @@ export function Hero() {
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.6, delay: 0.4 }}
                         >
-                            <GlassCard hoverEffect className="p-6 space-y-2 bg-white/5 border-white/10">
+                            <GlassCard hoverEffect className="p-6 space-y-2">
                                 <div className="text-4xl font-bold text-primary">50+</div>
                                 <div className="text-sm text-gray-300 font-medium">Projects Delivered</div>
                             </GlassCard>
@@ -102,7 +96,7 @@ export function Hero() {
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.6, delay: 0.5 }}
                         >
-                            <GlassCard hoverEffect className="p-6 space-y-2 bg-white/5 border-white/10">
+                            <GlassCard hoverEffect className="p-6 space-y-2">
                                 <div className="text-4xl font-bold text-secondary">98%</div>
                                 <div className="text-sm text-gray-300 font-medium">Client Satisfaction</div>
                             </GlassCard>
@@ -113,7 +107,7 @@ export function Hero() {
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.6, delay: 0.6 }}
                         >
-                            <GlassCard hoverEffect className="p-6 space-y-2 bg-white/5 border-white/10">
+                            <GlassCard hoverEffect className="p-6 space-y-2">
                                 <div className="text-4xl font-bold text-accent">24/7</div>
                                 <div className="text-sm text-gray-300 font-medium">Support Available</div>
                             </GlassCard>
@@ -124,7 +118,7 @@ export function Hero() {
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.6, delay: 0.7 }}
                         >
-                            <GlassCard hoverEffect className="p-6 space-y-2 bg-white/5 border-white/10">
+                            <GlassCard hoverEffect className="p-6 space-y-2">
                                 <div className="text-4xl font-bold text-primary">10+</div>
                                 <div className="text-sm text-gray-300 font-medium">Years Experience</div>
                             </GlassCard>
