@@ -18,8 +18,8 @@ export function Hero() {
             {/* 3D Spline Background */}
             <div className="absolute inset-0 z-0">
                 <SplineWrapper />
-                {/* Cover Spline Logo */}
-                <div className="absolute bottom-4 right-4 w-48 h-16 bg-black z-50 pointer-events-none select-none" />
+                {/* Cover Spline Logo
+                <div className="absolute bottom-0 right-4 w-38 h-14 bg-black z-50 pointer-events-none select-none rounded-t-3xl" /> */}
             </div>
 
             {/* Content Overlay */}
@@ -43,12 +43,13 @@ export function Hero() {
                             transition={{ duration: 0.6, delay: 0.1 }}
                         >
                             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-white text-shadow">
-                                We Build{" "}
+                                Affordable{" "}
                                 <span className="relative inline-block text-glow">
-                                    <span className="text-primary">Intelligent</span>
+                                    <span className="text-primary">Intelligence.</span>
                                     <span className="absolute -bottom-2 left-0 w-full h-1 bg-primary/30 rounded-full"></span>
                                 </span>
-                                {" "}Digital Solutions
+                                <br />
+                                Unlimited Growth.
                             </h1>
                         </motion.div>
 

@@ -14,10 +14,11 @@ export function WhyChooseUs() {
 
                     <ul className="space-y-6">
                         {[
-                            "Agile Methodology with Weekly Sprints",
-                            "Enterprise-Grade Security Standards",
-                            "Transparent Communication & Reporting",
-                            "Post-Launch Support & Maintenance"
+                            "Affordable, high-quality AI solutions",
+                            "Customized systems tailored to business needs",
+                            "Focus on customer experience and outreach",
+                            "Secure and scalable architectures",
+                            "Strong research and engineering foundation"
                         ].map((item, i) => (
                             <li key={i} className="flex items-center gap-4 text-lg">
                                 <CheckCircle2 className="w-6 h-6 text-primary shrink-0" />

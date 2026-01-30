@@ -5,44 +5,44 @@ import { Layout, Smartphone, Brain, Cloud, Database, BarChart3, ShieldCheck, Zap
 
 const SERVICES = [
     {
-        title: "Web Development",
-        description: "High-performance web applications built with Next.js and React.",
-        icon: Layout,
+        title: "AI Solutions",
+        description: "Custom machine learning, chatbots, and predictive analytics.",
+        icon: Brain,
         color: "text-primary",
         bgColor: "bg-primary/10"
     },
     {
-        title: "Mobile Apps",
-        description: "Native-quality cross-platform mobile experiences.",
+        title: "Web & Mobile App",
+        description: "Scalable web platforms and native mobile applications.",
         icon: Smartphone,
         color: "text-secondary",
         bgColor: "bg-secondary/10"
     },
     {
-        title: "AI Solutions",
-        description: "Intelligent automation and data-driven insights.",
-        icon: Brain,
-        color: "text-accent",
-        bgColor: "bg-accent/10"
-    },
-    {
-        title: "Cloud & DevOps",
-        description: "Scalable infrastructure and automated CI/CD pipelines.",
-        icon: Cloud,
-        color: "text-primary",
-        bgColor: "bg-primary/10"
-    },
-    {
-        title: "SaaS Development",
-        description: "Complete product development from MVP to scale.",
+        title: "CX Systems",
+        description: "AI-powered CRM and omnichannel engagement tools.",
         icon: Zap,
         color: "text-accent",
         bgColor: "bg-accent/10"
     },
     {
-        title: "UI/UX Design",
-        description: "User-centric design that converts visitors into customers.",
+        title: "Data Analytics",
+        description: "Dashboards, forecasting models, and business intelligence.",
         icon: BarChart3,
+        color: "text-primary",
+        bgColor: "bg-primary/10"
+    },
+    {
+        title: "AI Integration",
+        description: "Strategy consulting and system integration services.",
+        icon: Cloud,
+        color: "text-accent",
+        bgColor: "bg-accent/10"
+    },
+    {
+        title: "Enterprise Systems",
+        description: "Secure, scalable architectures for large organizations.",
+        icon: ShieldCheck,
         color: "text-secondary",
         bgColor: "bg-secondary/10"
     }

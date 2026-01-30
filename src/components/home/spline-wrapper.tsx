@@ -37,7 +37,7 @@ export default function SplineWrapper() {
 
             <Spline
                 scene="https://prod.spline.design/1ORTHVpPxX9rox2J/scene.splinecode"
-                className="w-full h-full"
+                className="w-full h-full scale-[1.2] origin-center"
                 onLoad={handleLoad}
                 onError={handleError}
             />

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { NAV_LINKS } from "@/lib/constants";
+import { NAV_LINKS, COMPANY_INFO } from "@/lib/constants";
 
 export function Footer() {
     return (
@@ -19,8 +19,11 @@ export function Footer() {
                             </div>
                         </Link>
                         <p className="mt-4 text-sm text-muted-foreground max-w-xs leading-relaxed">
-                            Empowering businesses with modern software solutions, AI integration, and world-class design.
+                            {COMPANY_INFO.description}
                         </p>
+                        <div className="mt-6 flex gap-4">
+                            {/* Social Icons could go here */}
+                        </div>
                     </div>
 
                     <div>

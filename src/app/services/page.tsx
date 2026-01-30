@@ -10,31 +10,42 @@ export const metadata: Metadata = {
 
 const SERVICES_DETAILED = [
     {
-        category: "Software Development",
+        category: "Artificial Intelligence Solutions",
         items: [
-            { name: "Web Applications", desc: "Scalable, secure, and high-performance web apps using Next.js." },
-            { name: "Mobile Apps", desc: "Native iOS and Android apps built with React Native." },
-            { name: "SaaS Products", desc: "Full-cycle SaaS development from MVP to IPO." }
-        ],
-        icon: Layout
-    },
-    {
-        category: "AI & Automation",
-        items: [
-            { name: "Chatbots & Assistants", desc: "Custom AI agents powered by LLMs for customer support." },
-            { name: "Process Automation", desc: "Automate repetitive tasks to save time and reduce errors." },
-            { name: "Data Analytics", desc: "Turn raw data into actionable business insights." }
+            { name: "Custom ML Models", desc: "Tailored machine learning models built for your specific business data and needs." },
+            { name: "Intelligent Automation", desc: "Streamline operations with smart, automated workflows." },
+            { name: "Chatbots & Rec Engines", desc: "Advanced conversational AI and personalized recommendation systems." },
+            { name: "Predictive Analytics", desc: "Forecast trends and make data-driven decisions." }
         ],
         icon: Brain
     },
     {
-        category: "Cloud Services",
+        category: "Software Development",
         items: [
-            { name: "Cloud Migration", desc: "Safe and efficient migration to AWS, Azure, or Google Cloud." },
-            { name: "DevOps", desc: "CI/CD pipelines, containerization (Docker/K8s), and infrastructure as code." },
-            { name: "Security", desc: "Enterprise-grade security audits and implementation." }
+            { name: "Web Applications", desc: "Scalable, secure, and high-performance web solutions." },
+            { name: "Mobile Applications", desc: "Native and cross-platform mobile apps for iOS and Android." },
+            { name: "Enterprise Systems", desc: "Robust software infrastructure for large-scale operations." },
+            { name: "Cloud Platforms", desc: "Secure and scalable cloud-based application deployment." }
         ],
-        icon: Cloud
+        icon: Layout
+    },
+    {
+        category: "Customer Experience Systems",
+        items: [
+            { name: "AI-Powered CRM", desc: "Next-gen customer relationship management tools." },
+            { name: "Support Automation", desc: "Reduce response times with automated support systems." },
+            { name: "Omnichannel Platforms", desc: "Unified engagement across email, chat, social, and voice." }
+        ],
+        icon: Smartphone
+    },
+    {
+        category: "Data & Consulting",
+        items: [
+            { name: "BI Dashboards", desc: "Visual analytics for real-time business monitoring." },
+            { name: "AI Strategy Consulting", desc: "Expert guidance on adopting and integrating AI technologies." },
+            { name: "System Integration", desc: "Seamlessly connect disparate systems and data sources." }
+        ],
+        icon: Database
     }
 ];
 

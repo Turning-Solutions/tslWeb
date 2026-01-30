@@ -7,13 +7,19 @@ export const NAV_LINKS = [
 ];
 
 export const CONTACT_INFO = {
-    email: "hello@company.com",
-    phone: "+1 (555) 123-4567",
-    address: "123 Tech Avenue, Innovation City, TC 90210",
+    email: "info@turingsolutions.com",
+    phone: "+94 XXX XXX XXX",
+    address: "Sri Lanka",
 };
 
 export const SOCIAL_LINKS = {
     twitter: "https://twitter.com",
     linkedin: "https://linkedin.com",
     github: "https://github.com",
+};
+
+export const COMPANY_INFO = {
+    name: "Turing Solutions Ltd",
+    slogan: "Affordable Intelligence. Unlimited Growth.",
+    description: "Turing Solutions Ltd is a technology-driven company specializing in the design and development of affordable, intelligent software solutions that enhance customer experience and expand business outreach.",
 };
