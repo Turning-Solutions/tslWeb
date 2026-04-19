@@ -1,12 +1,40 @@
 import { SectionWrapper } from "@/components/ui/section-wrapper";
 import { GlassCard } from "@/components/ui/glass-card";
-import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
 import { Metadata } from "next";
+import Image from "next/image";
+import { cn } from "@/lib/utils";
+
+const outlineButtonSm =
+    "inline-flex items-center justify-center rounded-lg font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/50 cursor-pointer active:scale-95 border border-white/20 hover:bg-white/5 text-white backdrop-blur-sm h-9 px-4 text-sm gap-2 w-full";
+
+type Project = {
+    title: string;
+    description: string;
+    url: string;
+    /** Local asset under `public/`; replace `.svg` with `.jpg` when you add screenshots. */
+    image: string;
+};
+
+const PROJECTS: Project[] = [
+    {
+        title: "Omniware.lk",
+        description:
+            "Premium custom PC builds and components: catalog search, categories, and a focused path from discovery to checkout.",
+        url: "https://omniware-web.vercel.app/",
+        image: "/projects/omniware.png",
+    },
+    {
+        title: "The Ceylon Spice Hub",
+        description: "A storefront experience for Ceylon spices and blends, built for clear navigation and product discovery.",
+        url: "https://ceylon-spice-hub-xi.vercel.app/",
+        image: "/projects/ceylon-spice-hub.png",
+    },
+];
 
 export const metadata: Metadata = {
     title: "Projects | Modern Software Company",
-    description: "Explore our portfolio of successful projects and case studies.",
+    description: "Explore our portfolio of shipped products and live demos.",
 };
 
 export default function ProjectsPage() {
@@ -14,29 +42,38 @@ export default function ProjectsPage() {
         <div className="pt-20">
             <SectionWrapper>
                 <div className="text-center mb-16">
-                    <h1 className="text-5xl font-bold mb-6">Case Studies</h1>
+                    <h1 className="text-5xl font-bold mb-6">Projects</h1>
                     <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
                         Real results for real clients. Explore our portfolio of successful projects.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {[1, 2, 3, 4, 5, 6].map((i) => (
-                        <GlassCard key={i} className="group p-0 overflow-hidden flex flex-col">
-                            <div className="relative h-64 bg-muted/50 w-full overflow-hidden">
-                                <div className="absolute inset-0 bg-primary/10 flex items-center justify-center">
-                                    <span className="text-muted-foreground">Project Image Placeholder {i}</span>
-                                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    {PROJECTS.map((project) => (
+                        <GlassCard key={project.url} className="group p-0 overflow-hidden flex flex-col">
+                            <div className="relative h-72 sm:h-80 md:h-[26rem] w-full overflow-hidden bg-zinc-950/80 ring-1 ring-inset ring-white/10">
+                                <Image
+                                    src={project.image}
+                                    alt={`${project.title} preview`}
+                                    fill
+                                    className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                    priority
+                                />
                             </div>
                             <div className="p-6 flex-1 flex flex-col">
-                                <h3 className="text-xl font-bold mb-2">Project Title {i}</h3>
-                                <p className="text-muted-foreground text-sm mb-4">
-                                    A brief description of the project and the problem it solved for the client.
-                                </p>
+                                <h2 className="text-xl font-bold mb-2">{project.title}</h2>
+                                <p className="text-muted-foreground text-sm mb-4 flex-1">{project.description}</p>
                                 <div className="mt-auto">
-                                    <Button variant="outline" size="sm" className="w-full gap-2">
-                                        <ExternalLink className="w-4 h-4" /> View Case Study
-                                    </Button>
+                                    <a
+                                        href={project.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={cn(outlineButtonSm)}
+                                    >
+                                        <ExternalLink className="w-4 h-4 shrink-0" aria-hidden />
+                                        Visit live site
+                                    </a>
                                 </div>
                             </div>
                         </GlassCard>

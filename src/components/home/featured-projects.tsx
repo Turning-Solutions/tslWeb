@@ -4,6 +4,11 @@ import { GlassCard } from "@/components/ui/glass-card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
+
+const outlineButtonMd =
+    "inline-flex items-center justify-center rounded-lg font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/50 cursor-pointer active:scale-95 border border-white/20 hover:bg-white/5 text-white backdrop-blur-sm h-11 px-6 text-base shrink-0";
 
 const PROJECTS = [
     {
@@ -36,7 +41,9 @@ export function FeaturedProjects() {
                         See how we transform complex requirements into intuitive digital experiences.
                     </p>
                 </div>
-                <Button variant="outline" className="shrink-0">View All Case Studies</Button>
+                <Link href="/projects" className={cn(outlineButtonMd)}>
+                    View all projects
+                </Link>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
