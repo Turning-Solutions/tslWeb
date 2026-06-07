@@ -7,12 +7,14 @@ import { Button } from "@/components/ui/button";
 import { NAV_LINKS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { useQuote } from "@/components/quote/quote-context";
 
 export function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const pathname = usePathname();
     const isHome = pathname === "/";
+    const { openQuote } = useQuote();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -75,6 +77,7 @@ export function Navbar() {
                         <Button
                             variant="primary"
                             size="sm"
+                            onClick={openQuote}
                             className="rounded-full px-6 bg-primary hover:bg-primary/90 shadow-lg shadow-primary/20"
                         >
                             Get a Quote
@@ -104,7 +107,7 @@ export function Navbar() {
                             </Link>
                         ))}
                         <div className="pt-2">
-                            <Button className="w-full rounded-full">Get a Quote</Button>
+                            <Button onClick={openQuote} className="w-full rounded-full">Get a Quote</Button>
                         </div>
                     </div>
                 )}

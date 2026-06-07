@@ -4,33 +4,10 @@ import { ExternalLink } from "lucide-react";
 import { Metadata } from "next";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { PROJECTS } from "@/lib/projects";
 
 const outlineButtonSm =
     "inline-flex items-center justify-center rounded-lg font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/50 cursor-pointer active:scale-95 border border-white/20 hover:bg-white/5 text-white backdrop-blur-sm h-9 px-4 text-sm gap-2 w-full";
-
-type Project = {
-    title: string;
-    description: string;
-    url: string;
-    /** Local asset under `public/`; replace `.svg` with `.jpg` when you add screenshots. */
-    image: string;
-};
-
-const PROJECTS: Project[] = [
-    {
-        title: "Omniware.lk",
-        description:
-            "Premium custom PC builds and components: catalog search, categories, and a focused path from discovery to checkout.",
-        url: "https://omniware-web.vercel.app/",
-        image: "/projects/omniware.png",
-    },
-    {
-        title: "The Ceylon Spice Hub",
-        description: "A storefront experience for Ceylon spices and blends, built for clear navigation and product discovery.",
-        url: "https://ceylon-spice-hub-xi.vercel.app/",
-        image: "/projects/ceylon-spice-hub.png",
-    },
-];
 
 export const metadata: Metadata = {
     title: "Projects | Modern Software Company",

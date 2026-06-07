@@ -1,37 +1,18 @@
 "use client";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
 import { GlassCard } from "@/components/ui/glass-card";
-import { Button } from "@/components/ui/button";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { PROJECTS } from "@/lib/projects";
 
 const outlineButtonMd =
     "inline-flex items-center justify-center rounded-lg font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/50 cursor-pointer active:scale-95 border border-white/20 hover:bg-white/5 text-white backdrop-blur-sm h-11 px-6 text-base shrink-0";
 
-const PROJECTS = [
-    {
-        title: "FinTech Dashboard",
-        description: "A real-time analytics dashboard for a leading financial institution, processing millions of transactions daily.",
-        tags: ["Next.js", "D3.js", "WebSocket"],
-        image: "/project1.jpg" // Placeholder
-    },
-    {
-        title: "AI Content Generator",
-        description: "SaaS platform leveraging GPT-4 to generate marketing copy, featuring a custom rich text editor.",
-        tags: ["React", "OpenAI API", "Tailwind"],
-        image: "/project2.jpg" // Placeholder
-    },
-    {
-        title: "E-Commerce Mobile App",
-        description: "Cross-platform mobile application for a fashion retailer with AR try-on features.",
-        tags: ["React Native", "Expo", "ARKit"],
-        image: "/project3.jpg" // Placeholder
-    }
-];
-
 export function FeaturedProjects() {
+    const featuredProjects = PROJECTS.slice(0, 3);
+
     return (
         <SectionWrapper id="projects" className="bg-black/20">
             <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
@@ -47,13 +28,17 @@ export function FeaturedProjects() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {PROJECTS.map((project, index) => (
-                    <GlassCard key={index} className="group p-0 overflow-hidden flex flex-col h-full">
-                        <div className="relative h-48 bg-muted/50 w-full overflow-hidden">
-                            {/* Placeholder for image */}
-                            <div className="absolute inset-0 flex items-center justify-center text-muted-foreground bg-gradient-to-br from-gray-800 to-gray-900 group-hover:scale-105 transition-transform duration-500">
-                                <span className="text-sm font-medium">Project Preview</span>
-                            </div>
+                {featuredProjects.map((project, index) => (
+                    <GlassCard key={project.url} className="group p-0 overflow-hidden flex flex-col h-full">
+                        <div className="relative h-52 w-full overflow-hidden bg-zinc-950/80 ring-1 ring-inset ring-white/10">
+                            <Image
+                                src={project.image}
+                                alt={`${project.title} preview`}
+                                fill
+                                className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                                sizes="(max-width: 768px) 100vw, 33vw"
+                                priority={index < 2}
+                            />
                         </div>
 
                         <div className="p-6 flex-1 flex flex-col">
@@ -69,9 +54,15 @@ export function FeaturedProjects() {
                             </div>
 
                             <div className="flex gap-4 mt-auto">
-                                <Button variant="ghost" size="sm" className="w-full gap-2">
-                                    <ExternalLink className="w-4 h-4" /> Live Demo
-                                </Button>
+                                <a
+                                    href={project.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-white/20 px-4 py-2 text-sm font-medium text-white transition-all duration-300 hover:bg-white/5"
+                                >
+                                    <ExternalLink className="w-4 h-4" />
+                                    Live Demo
+                                </a>
                             </div>
                         </div>
                     </GlassCard>

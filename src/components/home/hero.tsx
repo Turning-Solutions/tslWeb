@@ -2,10 +2,9 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { SectionWrapper } from "@/components/ui/section-wrapper";
-import { GlassCard } from "@/components/ui/glass-card";
-import { ArrowRight, Code, Sparkles } from "lucide-react";
+import { ArrowRight, Bot, Code, Rocket, Sparkles, Store } from "lucide-react";
 import dynamic from 'next/dynamic';
+import { useQuote } from "@/components/quote/quote-context";
 
 const SplineWrapper = dynamic(() => import('./spline-wrapper'), {
     ssr: false,
@@ -13,6 +12,7 @@ const SplineWrapper = dynamic(() => import('./spline-wrapper'), {
 });
 
 export function Hero() {
+    const { openQuote } = useQuote();
     return (
         <section className="min-h-screen w-full flex items-center justify-center relative overflow-hidden bg-black">
             {/* 3D Spline Background */}
@@ -25,8 +25,7 @@ export function Hero() {
             {/* Content Overlay */}
             <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-24 pointer-events-none">
                 <div className="grid lg:grid-cols-12 gap-12 items-center">
-                    {/* Left content - 60% */}
-                    <div className="lg:col-span-7 space-y-8">
+                    <div className="lg:col-span-7 space-y-8 max-w-4xl">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -68,7 +67,7 @@ export function Hero() {
                             transition={{ duration: 0.6, delay: 0.3 }}
                             className="flex flex-col sm:flex-row gap-4 pt-4 pointer-events-auto"
                         >
-                            <Button size="lg" className="text-base gap-2 group px-8 rounded-full shadow-lg">
+                            <Button onClick={openQuote} size="lg" className="text-base gap-2 group px-8 rounded-full shadow-lg">
                                 Get a Quote
                                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </Button>
@@ -79,52 +78,36 @@ export function Hero() {
                         </motion.div>
                     </div>
 
-                    {/* Right content - 40% with glassmorphic stats cards */}
-                    <div className="lg:col-span-5 grid grid-cols-2 gap-4 pointer-events-auto">
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.6, delay: 0.4 }}
-                        >
-                            <GlassCard hoverEffect className="p-6 space-y-2">
-                                <div className="text-4xl font-bold text-primary">50+</div>
-                                <div className="text-sm text-gray-300 font-medium">Projects Delivered</div>
-                            </GlassCard>
-                        </motion.div>
+                    <motion.div
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.6, delay: 0.35 }}
+                        className="lg:col-span-5 pointer-events-auto"
+                    >
+                        <div className="rounded-3xl border border-white/15 bg-black/45 backdrop-blur-xl p-6 md:p-8 space-y-6">
+                            <div>
+                                <p className="text-xs uppercase tracking-[0.2em] text-primary/80 mb-3">Built for startups</p>
+                                <h3 className="text-2xl md:text-3xl font-semibold text-white leading-tight">
+                                    Launch fast with products you can ship now
+                                </h3>
+                            </div>
 
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.6, delay: 0.5 }}
-                        >
-                            <GlassCard hoverEffect className="p-6 space-y-2">
-                                <div className="text-4xl font-bold text-secondary">98%</div>
-                                <div className="text-sm text-gray-300 font-medium">Client Satisfaction</div>
-                            </GlassCard>
-                        </motion.div>
-
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.6, delay: 0.6 }}
-                        >
-                            <GlassCard hoverEffect className="p-6 space-y-2">
-                                <div className="text-4xl font-bold text-accent">24/7</div>
-                                <div className="text-sm text-gray-300 font-medium">Support Available</div>
-                            </GlassCard>
-                        </motion.div>
-
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.6, delay: 0.7 }}
-                        >
-                            <GlassCard hoverEffect className="p-6 space-y-2">
-                                <div className="text-4xl font-bold text-primary">10+</div>
-                                <div className="text-sm text-gray-300 font-medium">Years Experience</div>
-                            </GlassCard>
-                        </motion.div>
-                    </div>
+                            <div className="space-y-3">
+                                <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-4">
+                                    <Bot className="w-5 h-5 text-primary shrink-0" />
+                                    <span className="text-sm md:text-base text-gray-100">Customized AI Chatbots</span>
+                                </div>
+                                <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-4">
+                                    <Store className="w-5 h-5 text-secondary shrink-0" />
+                                    <span className="text-sm md:text-base text-gray-100">CMS for Shops</span>
+                                </div>
+                                <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-4">
+                                    <Rocket className="w-5 h-5 text-accent shrink-0" />
+                                    <span className="text-sm md:text-base text-gray-100">Ready-to-Ship Web Products</span>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div>
                 </div>
             </div>
         </section>

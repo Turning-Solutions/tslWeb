@@ -13,9 +13,12 @@ export const CONTACT_INFO = {
 };
 
 export const SOCIAL_LINKS = {
-    twitter: "https://twitter.com",
-    linkedin: "https://linkedin.com",
-    github: "https://github.com",
+    facebook: "https://www.facebook.com/OmniwareTechnologies/",
+    instagram: "https://www.instagram.com/omniwaretechnologies/",
+    tiktok: "https://www.tiktok.com/@omniware",
+    x: "https://x.com/OmniwareTech",
+    discord: "https://discord.gg/Q6yzJNBk",
+    linkedin: "https://www.linkedin.com/company/omniwarelk/",
 };
 
 export const COMPANY_INFO = {
