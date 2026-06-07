@@ -1,6 +1,6 @@
 import { SectionWrapper } from "@/components/ui/section-wrapper";
 import { GlassCard } from "@/components/ui/glass-card";
-import { Brain, Rocket, Heart, Eye, Target, Zap, Shield, Users } from "lucide-react";
+import { Rocket, Heart, Eye, Target, Zap, Shield, Users } from "lucide-react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -105,18 +105,17 @@ export default function AboutPage() {
                     <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center">Meet The Leadership</h2>
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {[
-                            { name: "Sarah Johnson", role: "CEO & Founder", desc: "Ex-Google tech lead with 15 years in AI & Scalable Systems." },
-                            { name: "Michael Chen", role: "CTO", desc: "Architecture genius specializing in distributed cloud systems." },
-                            { name: "Elena Rodriguez", role: "Head of Product", desc: "Product strategist focused on user-centric design principles." },
-                            { name: "David Kim", role: "Lead Engineer", desc: "Full-stack expert mentoring our global dev network." }
+                            { name: "Nimesha Jayasuriya", role: "Marketing Director" },
+                            { name: "Thesaki Weeramanthrie", role: "UI/UX Engineer" },
+                            { name: "Sahan Gamage", role: "CEO" },
+                            { name: "Sasanka Wakkumbura", role: "CTO" }
                         ].map((member, i) => (
                             <GlassCard key={i} className="text-center p-8 group hover:border-primary/50 transition-colors">
                                 <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center text-3xl font-bold text-muted-foreground group-hover:from-primary group-hover:to-secondary group-hover:text-white transition-all shadow-xl group-hover:shadow-primary/20">
                                     {member.name.charAt(0)}
                                 </div>
                                 <h3 className="text-xl font-bold mb-1">{member.name}</h3>
-                                <div className="text-primary text-sm font-medium mb-4">{member.role}</div>
-                                <p className="text-sm text-muted-foreground leading-relaxed">{member.desc}</p>
+                                <div className="text-primary text-sm font-medium">{member.role}</div>
                             </GlassCard>
                         ))}
                     </div>

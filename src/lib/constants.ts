@@ -1,14 +1,14 @@
 export const NAV_LINKS = [
     { href: "/", label: "Home" },
     { href: "/services", label: "Services" },
-    { href: "/projects", label: "Projects" },
+    { href: "/products", label: "Products" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
 ];
 
 export const CONTACT_INFO = {
-    email: "info@turingsolutions.com",
-    phone: "+94 XXX XXX XXX",
+    email: "turingsolutionsltd@gmail.com",
+    phone: "+94 77 970 5099",
     address: "Sri Lanka",
 };
 

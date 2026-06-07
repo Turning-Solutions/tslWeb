@@ -11,28 +11,34 @@ const REPEATED_CUSTOMERS = [...CUSTOMERS, ...CUSTOMERS, ...CUSTOMERS, ...CUSTOME
 
 export function CustomerLogoSlider() {
     return (
-        <section className="py-12 bg-black/20 border-y border-white/5 overflow-hidden flex relative z-10">
-            <div className="absolute inset-0 z-10 bg-gradient-to-r from-background via-transparent to-background pointer-events-none" />
+        <section className="py-14 bg-black/20 border-y border-white/5 relative z-10">
+            <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-10">
+                Trusted by growing businesses
+            </p>
 
-            <div className="flex animate-marquee hover:pause">
-                {[0, 1].map((i) => (
-                    <div key={i} className="flex gap-8 px-4 shrink-0" aria-hidden={i > 0}>
-                        {REPEATED_CUSTOMERS.map((customer, idx) => (
-                            <div
-                                key={`${i}-${idx}`}
-                                className="h-20 w-56 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm px-6 flex items-center justify-center"
-                            >
-                                <Image
-                                    src={customer.logo}
-                                    alt={`${customer.name} logo`}
-                                    width={180}
-                                    height={56}
-                                    className="max-h-14 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
-                                />
-                            </div>
-                        ))}
-                    </div>
-                ))}
+            <div className="overflow-hidden flex relative">
+                <div className="absolute inset-0 z-10 bg-gradient-to-r from-background via-transparent to-background pointer-events-none" />
+
+                <div className="flex animate-marquee hover:pause">
+                    {[0, 1].map((i) => (
+                        <div key={i} className="flex gap-10 px-6 shrink-0" aria-hidden={i > 0}>
+                            {REPEATED_CUSTOMERS.map((customer, idx) => (
+                                <div
+                                    key={`${i}-${idx}`}
+                                    className="flex items-center justify-center px-10"
+                                >
+                                    <Image
+                                        src={customer.logo}
+                                        alt={`${customer.name} logo`}
+                                        width={220}
+                                        height={72}
+                                        className="max-h-16 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity"
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    ))}
+                </div>
             </div>
         </section>
     );

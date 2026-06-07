@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useRef, ElementType } from "react";
+import { useState, useEffect, useMemo, useRef, ElementType } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
     X, Bot, Globe, Smartphone, Brain, ShoppingCart, BarChart2, Layers,
@@ -23,7 +23,7 @@ type ChatMsg = { id: string; from: "bot" | "user"; text: string };
 
 // ─── Steps config ─────────────────────────────────────────────────────────────
 
-const STEPS: Step[] = [
+const GENERAL_STEPS: Step[] = [
     {
         id: "solution_type",
         question: "What type of solution are you looking for?",
@@ -71,13 +71,53 @@ const STEPS: Step[] = [
     },
 ];
 
-const makeInitialMessages = (): ChatMsg[] => [
+const createSelectedTopicSteps = (selectedTopic: string): Step[] => [
+    {
+        id: "problem",
+        question: `What do you want to achieve with ${selectedTopic}?`,
+        type: "text",
+        placeholder: `e.g. I want ${selectedTopic} for my business, with these main requirements...`,
+    },
+    {
+        id: "existing_systems",
+        question: `Do you already have any systems, website, data, or tools that ${selectedTopic} should connect with?`,
+        type: "choices",
+        choices: [
+            { label: "Yes, connect with existing tools", icon: CheckCircle2, value: "Yes" },
+            { label: "No, this can start fresh", icon: Sparkles, value: "No" },
+            { label: "I'm not sure yet", icon: HelpCircle, value: "Not sure" },
+        ],
+    },
+    {
+        id: "timeline",
+        question: `When would you like to start or launch ${selectedTopic}?`,
+        type: "choices",
+        choices: [
+            { label: "As soon as possible", icon: Zap, value: "ASAP" },
+            { label: "1–3 months", icon: CalendarDays, value: "1–3 months" },
+            { label: "3–6 months", icon: Calendar, value: "3–6 months" },
+            { label: "No rush", icon: Clock, value: "No rush" },
+        ],
+    },
+    {
+        id: "contact",
+        question: `Great. Where should we send the quote for ${selectedTopic}?`,
+        type: "contact",
+    },
+];
+
+const getQuoteSteps = (selectedTopic?: string): Step[] =>
+    selectedTopic ? createSelectedTopicSteps(selectedTopic) : GENERAL_STEPS;
+
+const makeInitialMessages = (steps: Step[], selectedTopic?: string): ChatMsg[] => [
     {
         id: "greeting",
         from: "bot",
-        text: "Hi there! 👋 I'm here to help you get a quote from Turing Solutions. This will only take a minute.",
+        text: selectedTopic
+            ? `Hi there! I'm here to help you get a quote for ${selectedTopic}. I'll only ask the details needed for this request.`
+            : "Hi there! I'm here to help you get a quote from Turing Solutions. This will only take a minute.",
     },
-    { id: "step-0", from: "bot", text: STEPS[0].question },
+    { id: "step-0", from: "bot", text: steps[0].question },
 ];
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
@@ -317,9 +357,10 @@ function SuccessScreen({ onClose }: { onClose: () => void }) {
 // ─── Main component ───────────────────────────────────────────────────────────
 
 export function QuoteModal() {
-    const { isOpen, closeQuote } = useQuote();
+    const { isOpen, closeQuote, selectedTopic } = useQuote();
+    const quoteSteps = useMemo(() => getQuoteSteps(selectedTopic), [selectedTopic]);
 
-    const [messages, setMessages] = useState<ChatMsg[]>(makeInitialMessages);
+    const [messages, setMessages] = useState<ChatMsg[]>(() => makeInitialMessages(GENERAL_STEPS));
     const [step, setStep] = useState(0);
     const [answers, setAnswers] = useState<Record<string, string>>({});
     const [typing, setTyping] = useState(false);
@@ -331,15 +372,15 @@ export function QuoteModal() {
 
     useEffect(() => {
         if (isOpen) {
-            setMessages(makeInitialMessages());
+            setMessages(makeInitialMessages(quoteSteps, selectedTopic));
             setStep(0);
-            setAnswers({});
+            setAnswers(selectedTopic ? { selected_item: selectedTopic, solution_type: selectedTopic } : {});
             setTyping(false);
             setAnswered(false);
             setSubmitting(false);
             setSubmitted(false);
         }
-    }, [isOpen]);
+    }, [isOpen, quoteSteps, selectedTopic]);
 
     useEffect(() => {
         endRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -354,17 +395,17 @@ export function QuoteModal() {
 
     const handleAnswer = (answer: string, display?: string) => {
         if (answered || typing) return;
-        const currentStep = STEPS[step];
+        const currentStep = quoteSteps[step];
         setAnswers((prev) => ({ ...prev, [currentStep.id]: answer }));
         setAnswered(true);
         addMsg("user", display ?? answer);
 
         const next = step + 1;
-        if (next < STEPS.length) {
+        if (next < quoteSteps.length) {
             setTyping(true);
             setTimeout(() => {
                 setTyping(false);
-                addMsg("bot", STEPS[next].question);
+                addMsg("bot", quoteSteps[next].question);
                 setStep(next);
                 setAnswered(false);
             }, 950);
@@ -384,6 +425,7 @@ export function QuoteModal() {
                 const emailjs = (await import("@emailjs/browser")).default;
 
                 const params = {
+                    selected_item: answers.selected_item ?? "General request",
                     solution_type: answers.solution_type ?? "—",
                     problem: answers.problem ?? "—",
                     existing_systems: answers.existing_systems ?? "—",
@@ -407,8 +449,8 @@ export function QuoteModal() {
         setSubmitted(true);
     };
 
-    const currentStepData = STEPS[step];
-    const progress = submitted ? 100 : ((step + 0.5) / STEPS.length) * 100;
+    const currentStepData = quoteSteps[step];
+    const progress = submitted ? 100 : ((step + 0.5) / quoteSteps.length) * 100;
     const showInput = !typing && !answered && !submitted;
 
     return (
@@ -442,7 +484,7 @@ export function QuoteModal() {
                                         <h2 className="text-base font-bold tracking-tight">Get a Quote</h2>
                                         {!submitted && (
                                             <p className="text-xs text-muted-foreground mt-0.5">
-                                                Step {step + 1} of {STEPS.length}
+                                                Step {step + 1} of {quoteSteps.length}
                                             </p>
                                         )}
                                     </div>

@@ -1,4 +1,4 @@
-export type Project = {
+export type Product = {
   title: string;
   description: string;
   url: string;
@@ -6,7 +6,7 @@ export type Project = {
   tags: string[];
 };
 
-export const PROJECTS: Project[] = [
+export const PRODUCTS: Product[] = [
   {
     title: "Omniware.lk",
     description:
@@ -19,7 +19,7 @@ export const PROJECTS: Project[] = [
     title: "The Ceylon Spice Hub",
     description:
       "A storefront experience for Ceylon spices and blends, built for clear navigation and product discovery.",
-    url: "https://ceylon-spice-hub-xi.vercel.app/",
+    url: "https://ceylonspicehub.lk/",
     image: "/projects/ceylon-spice-hub.png",
     tags: ["Retail", "Product Discovery", "UX"],
   },

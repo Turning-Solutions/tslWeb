@@ -4,6 +4,7 @@ import "./globals.css";
 import { AnimatedBackground } from "@/components/ui/animated-background";
 import { WhatsAppFloat } from "@/components/layout/whatsapp-float";
 import { Navbar } from "@/components/layout/navbar";
+import { Footer } from "@/components/layout/footer";
 import { QuoteProvider } from "@/components/quote/quote-context";
 import { QuoteModal } from "@/components/quote/quote-modal";
 
@@ -28,6 +29,7 @@ export default function RootLayout({
           <WhatsAppFloat />
           <QuoteModal />
           {children}
+          <Footer />
         </QuoteProvider>
       </body>
     </html>
