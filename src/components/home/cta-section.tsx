@@ -18,10 +18,10 @@ export function CallToAction() {
                     From concept to launch, we are here to help you build software that matters. Let's discuss your next big idea.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Button onClick={openQuote} size="lg" className="h-14 px-8 text-lg font-semibold shadow-xl shadow-primary/20 hover:scale-105 transition-transform">
+                    <Button onClick={() => openQuote()} size="lg" className="h-14 px-8 text-lg font-semibold shadow-xl shadow-primary/20 hover:scale-105 transition-transform">
                         Start Your Project <ArrowRight className="ml-2 w-5 h-5" />
                     </Button>
-                    <Button onClick={openQuote} size="lg" variant="outline" className="h-14 px-8 text-lg bg-background/50 backdrop-blur-sm">
+                    <Button onClick={() => openQuote()} size="lg" variant="outline" className="h-14 px-8 text-lg bg-background/50 backdrop-blur-sm">
                         Schedule a Call
                     </Button>
                 </div>

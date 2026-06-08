@@ -77,7 +77,7 @@ export function Navbar() {
                         <Button
                             variant="primary"
                             size="sm"
-                            onClick={openQuote}
+                            onClick={() => openQuote()}
                             className="rounded-full px-6 bg-primary hover:bg-primary/90 shadow-lg shadow-primary/20"
                         >
                             Get a Quote
@@ -107,7 +107,7 @@ export function Navbar() {
                             </Link>
                         ))}
                         <div className="pt-2">
-                            <Button onClick={openQuote} className="w-full rounded-full">Get a Quote</Button>
+                            <Button onClick={() => openQuote()} className="w-full rounded-full">Get a Quote</Button>
                         </div>
                     </div>
                 )}
