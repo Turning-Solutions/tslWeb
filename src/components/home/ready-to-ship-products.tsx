@@ -9,7 +9,7 @@ const READY_PRODUCTS = [
   {
     title: "Custom AI Agents",
     description:
-      "Deploy branded AI agents and chatbots tailored to your workflows, FAQs, lead capture, and support goals.",
+      "Deploy branded AI agents tailored to your workflows, FAQs, lead capture, and support goals.",
     icon: Bot,
     color: "text-primary",
     bgColor: "bg-primary/10",
@@ -51,34 +51,34 @@ const READY_PRODUCTS = [
 export function ReadyToShipProducts() {
   return (
     <SectionWrapper id="products" className="section-divider">
-      <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+      <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 sm:gap-6 mb-8 sm:mb-12 md:mb-14">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary mb-4">Ready to ship</p>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
+          <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-primary mb-3 sm:mb-4">Ready to ship</p>
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-3 sm:mb-4">
             Products you can launch this week.
           </h2>
-          <p className="text-muted-foreground text-lg max-w-xl">
+          <p className="text-muted-foreground text-base sm:text-lg max-w-xl">
             Prebuilt digital systems we customize around your brand and workflow, no starting from zero.
           </p>
         </div>
         <Link
           href="/products"
-          className="shrink-0 inline-flex items-center gap-2 rounded-lg border border-white/20 px-5 py-2.5 text-sm font-medium text-white hover:bg-white/5 transition-colors"
+          className="shrink-0 inline-flex items-center justify-center gap-2 rounded-lg border border-white/20 px-5 py-2.5 text-sm font-medium text-white hover:bg-white/5 transition-colors w-full sm:w-auto"
         >
-          See full details
+          Browse Products
           <ArrowRight className="w-4 h-4" />
         </Link>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {READY_PRODUCTS.map((product) => (
-          <GlassCard key={product.title} hoverEffect className="group">
+          <GlassCard key={product.title} hoverEffect className="group p-5 sm:p-6">
             <div
-              className={`mb-6 inline-flex p-4 rounded-xl ${product.bgColor} transition-all`}
+              className={`mb-4 sm:mb-6 inline-flex p-3 sm:p-4 rounded-xl ${product.bgColor} transition-all`}
             >
-              <product.icon className={`w-6 h-6 ${product.color}`} />
+              <product.icon className={`w-5 h-5 sm:w-6 sm:h-6 ${product.color}`} />
             </div>
-            <h3 className="text-xl font-semibold mb-3">{product.title}</h3>
+            <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">{product.title}</h3>
             <p className="text-muted-foreground text-sm leading-relaxed">
               {product.description}
             </p>

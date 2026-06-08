@@ -9,10 +9,10 @@ export function SectionWrapper({ children, className, id, ...props }: SectionWra
     return (
         <section
             id={id}
-            className={cn("py-20 md:py-32 relative", className)}
+            className={cn("py-14 sm:py-20 md:py-28 lg:py-32 relative", className)}
             {...props}
         >
-            <div className="container mx-auto px-4 md:px-6 relative z-10">
+            <div className="container mx-auto px-5 sm:px-6 relative z-10">
                 {children}
             </div>
         </section>

@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 import { PRODUCTS } from "@/lib/projects";
 
 const outlineButtonSm =
-    "inline-flex items-center justify-center rounded-lg font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/50 cursor-pointer active:scale-95 border border-white/20 hover:bg-white/5 text-white backdrop-blur-sm h-9 px-4 text-sm gap-2 w-full";
+    "inline-flex items-center justify-center rounded-xl font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/50 cursor-pointer active:scale-95 border border-white/20 hover:bg-white/5 text-white backdrop-blur-sm h-12 px-4 text-sm gap-2 w-full sm:h-11 sm:rounded-lg";
 
 const READY_TO_SHIP_PRODUCTS = [
     {
@@ -60,12 +60,12 @@ export const metadata: Metadata = {
 
 export default function ProductsPage() {
     return (
-        <div className="pt-20">
-            <SectionWrapper>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="pt-16 sm:pt-20">
+            <SectionWrapper className="py-10 sm:py-20 md:py-32">
+                <div className="grid grid-cols-1 gap-5 sm:gap-8 md:grid-cols-2 max-w-5xl mx-auto">
                     {PRODUCTS.map((product) => (
-                        <GlassCard key={product.url} className="group p-0 overflow-hidden flex flex-col">
-                            <div className="relative h-72 sm:h-80 md:h-[26rem] w-full overflow-hidden bg-zinc-950/80 ring-1 ring-inset ring-white/10">
+                        <GlassCard key={product.url} className="group flex flex-col overflow-hidden p-0">
+                            <div className="relative h-52 w-full overflow-hidden bg-zinc-950/80 ring-1 ring-inset ring-white/10 sm:h-72 md:h-[26rem]">
                                 <Image
                                     src={product.image}
                                     alt={`${product.title} preview`}
@@ -75,9 +75,9 @@ export default function ProductsPage() {
                                     priority
                                 />
                             </div>
-                            <div className="p-6 flex-1 flex flex-col">
-                                <h2 className="text-xl font-bold mb-2">{product.title}</h2>
-                                <p className="text-muted-foreground text-sm mb-4 flex-1">{product.description}</p>
+                            <div className="flex flex-1 flex-col p-4 sm:p-6">
+                                <h2 className="mb-2 text-lg font-bold sm:text-xl">{product.title}</h2>
+                                <p className="mb-4 flex-1 text-sm text-muted-foreground">{product.description}</p>
                                 <div className="mt-auto">
                                     <a
                                         href={product.url}
@@ -95,44 +95,47 @@ export default function ProductsPage() {
                 </div>
             </SectionWrapper>
 
-            <SectionWrapper id="ready-to-ship-products" className="bg-black/20 section-divider">
-                <div className="flex flex-col lg:flex-row justify-between gap-8 mb-14">
+            <SectionWrapper id="ready-to-ship-products" className="bg-black/20 section-divider py-10 sm:py-20 md:py-32">
+                <div className="mb-8 flex flex-col gap-6 sm:mb-14 lg:flex-row lg:justify-between lg:gap-8">
                     <div className="max-w-2xl">
-                        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary mb-4">
+                        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-primary sm:mb-4 sm:text-sm">
                             Ready to Ship Products
                         </p>
-                        <h2 className="text-3xl md:text-5xl font-bold mb-5">
+                        <h2 className="mb-3 text-2xl font-bold sm:mb-5 sm:text-3xl md:text-5xl">
                             Productized systems that start fast and grow with you.
                         </h2>
-                        <p className="text-muted-foreground text-lg">
-                            These are prebuilt foundations we customize around your brand, workflow, users, and launch goals, so you get more detail than a template without starting from zero.
+                        <p className="text-sm text-muted-foreground sm:text-lg">
+                            Prebuilt foundations we customize around your brand, workflow, and launch goals.
                         </p>
                     </div>
-                    <GlassCard className="lg:max-w-sm h-fit">
-                        <p className="text-sm text-muted-foreground mb-2">Typical delivery model</p>
-                        <p className="text-2xl font-semibold mb-4">Configure, customize, launch</p>
-                        <p className="text-sm text-muted-foreground leading-relaxed">
+                    <GlassCard className="h-fit p-5 sm:p-6 lg:max-w-sm">
+                        <p className="mb-2 text-sm text-muted-foreground">Typical delivery model</p>
+                        <p className="mb-3 text-xl font-semibold sm:mb-4 sm:text-2xl">Configure, customize, launch</p>
+                        <p className="text-sm leading-relaxed text-muted-foreground">
                             We map your requirements, adjust the product modules, connect the required tools, then deploy a polished version ready for real users.
                         </p>
                     </GlassCard>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-2">
                     {READY_TO_SHIP_PRODUCTS.map((product) => (
-                        <GlassCard key={product.title} hoverEffect className="h-full">
-                            <div className="flex flex-col sm:flex-row gap-5">
-                                <div className="shrink-0">
-                                    <div className="inline-flex rounded-2xl bg-primary/10 p-4 text-primary">
-                                        <product.icon className="h-7 w-7" />
+                        <GlassCard key={product.title} hoverEffect className="h-full p-4 sm:p-6">
+                            <div className="flex flex-col gap-4 sm:gap-5">
+                                <div className="flex items-start gap-3 sm:gap-4">
+                                    <div className="shrink-0 rounded-2xl bg-primary/10 p-3 text-primary sm:p-4">
+                                        <product.icon className="h-6 w-6 sm:h-7 sm:w-7" />
+                                    </div>
+                                    <div className="min-w-0 flex-1">
+                                        <h3 className="text-lg font-semibold leading-snug sm:text-2xl">{product.title}</h3>
+                                        <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:mt-0 sm:text-base">
+                                            {product.description}
+                                        </p>
                                     </div>
                                 </div>
-                                <div className="flex-1">
-                                    <div className="mb-3">
-                                        <h3 className="text-2xl font-semibold">{product.title}</h3>
-                                    </div>
-                                    <p className="text-muted-foreground leading-relaxed mb-5">{product.description}</p>
-                                    <p className="text-sm font-medium text-white mb-3">Best for: {product.idealFor}</p>
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+
+                                <div>
+                                    <p className="mb-3 text-sm font-medium text-white">Best for: {product.idealFor}</p>
+                                    <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 sm:gap-3">
                                         {product.features.map((feature) => (
                                             <div key={feature} className="flex items-start gap-2 text-sm text-gray-300">
                                                 <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
@@ -140,8 +143,9 @@ export default function ProductsPage() {
                                             </div>
                                         ))}
                                     </div>
-                                    <QuoteActions topic={product.title} className="mt-6" />
                                 </div>
+
+                                <QuoteActions topic={product.title} className="mt-1 sm:mt-2" />
                             </div>
                         </GlassCard>
                     ))}

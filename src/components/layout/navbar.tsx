@@ -44,13 +44,13 @@ export function Navbar() {
                         "flex items-center justify-between transition-all duration-500",
                         isScrolled
                             ? "backdrop-blur-3xl bg-black/40 border border-white/10 rounded-full px-6 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.4)] supports-[backdrop-filter]:bg-black/20"
-                            : "backdrop-blur-xl bg-transparent border-b border-transparent h-20"
+                            : "backdrop-blur-xl bg-transparent border-b border-transparent h-16 sm:h-20"
                     )}
                 >
                     <Link href="/" className="flex items-center gap-2 z-10">
                         <div className={cn(
                             "relative transition-all duration-500",
-                            isScrolled ? "h-10 w-40" : "h-20 w-64"
+                            isScrolled ? "h-8 w-32 sm:h-10 sm:w-40" : "h-12 w-40 sm:h-16 sm:w-52 md:h-20 md:w-64"
                         )}>
                             <Image
                                 src="/tsl_logo.svg"

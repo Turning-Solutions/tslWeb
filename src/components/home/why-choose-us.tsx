@@ -45,23 +45,23 @@ const REASONS = [
 export function WhyChooseUs() {
     return (
         <SectionWrapper id="why-us" className="section-divider">
-            <div className="text-center mb-16">
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary mb-4">Why us</p>
-                <h2 className="text-3xl md:text-5xl font-bold mb-4">Why Partner With Us?</h2>
-                <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <div className="text-center mb-8 sm:mb-12 md:mb-16">
+                <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-primary mb-3 sm:mb-4">Why us</p>
+                <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-3 sm:mb-4">Why Partner With Us?</h2>
+                <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto px-1">
                     We don&apos;t just deliver code, we deliver certainty. Every engagement is built on clarity, care, and measurable outcomes.
                 </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 items-start">
                 {/* Checklist */}
-                <GlassCard className="p-8 h-full">
-                    <h3 className="text-2xl font-semibold mb-8">What sets us apart</h3>
-                    <ul className="space-y-5">
+                <GlassCard className="p-5 sm:p-8 h-full">
+                    <h3 className="text-xl sm:text-2xl font-semibold mb-5 sm:mb-8">What sets us apart</h3>
+                    <ul className="space-y-4 sm:space-y-5">
                         {REASONS.map((item) => (
-                            <li key={item} className="flex items-center gap-4 text-base">
-                                <div className="shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                                    <CheckCircle2 className="w-4 h-4 text-primary" />
+                            <li key={item} className="flex items-start sm:items-center gap-3 sm:gap-4 text-sm sm:text-base">
+                                <div className="shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-primary/10 flex items-center justify-center mt-0.5 sm:mt-0">
+                                    <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary" />
                                 </div>
                                 <span className="text-gray-200">{item}</span>
                             </li>
@@ -70,9 +70,9 @@ export function WhyChooseUs() {
                 </GlassCard>
 
                 {/* Value cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     {VALUE_CARDS.map((card) => (
-                        <GlassCard key={card.title} hoverEffect className="p-6 flex flex-col gap-4">
+                        <GlassCard key={card.title} hoverEffect className="p-5 sm:p-6 flex flex-col gap-3 sm:gap-4">
                             <div className={`inline-flex w-12 h-12 rounded-2xl ${card.iconBg} items-center justify-center`}>
                                 <card.icon className={`w-6 h-6 ${card.iconColor}`} />
                             </div>

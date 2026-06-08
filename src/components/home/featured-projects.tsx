@@ -15,22 +15,22 @@ export function FeaturedProducts() {
 
     return (
         <SectionWrapper id="featured-products" className="bg-black/20">
-            <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 sm:mb-12 md:mb-16 gap-4 sm:gap-6">
                 <div>
-                    <h2 className="text-3xl md:text-5xl font-bold mb-4">Featured Products</h2>
-                    <p className="text-muted-foreground text-lg max-w-xl">
+                    <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-3 sm:mb-4">Featured Products</h2>
+                    <p className="text-muted-foreground text-base sm:text-lg max-w-xl">
                         See how we turn business requirements into polished digital products.
                     </p>
                 </div>
-                <Link href="/products" className={cn(outlineButtonMd)}>
+                <Link href="/products" className={cn(outlineButtonMd, "w-full sm:w-auto")}>
                     View all products
                 </Link>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
                 {featuredProducts.map((product, index) => (
                     <GlassCard key={product.url} className="group p-0 overflow-hidden flex flex-col h-full">
-                        <div className="relative h-52 w-full overflow-hidden bg-zinc-950/80 ring-1 ring-inset ring-white/10">
+                        <div className="relative h-44 sm:h-52 w-full overflow-hidden bg-zinc-950/80 ring-1 ring-inset ring-white/10">
                             <Image
                                 src={product.image}
                                 alt={`${product.title} preview`}
@@ -41,11 +41,11 @@ export function FeaturedProducts() {
                             />
                         </div>
 
-                        <div className="p-6 flex-1 flex flex-col">
-                            <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">{product.title}</h3>
-                            <p className="text-muted-foreground text-sm mb-6 flex-1">{product.description}</p>
+                        <div className="p-5 sm:p-6 flex-1 flex flex-col">
+                            <h3 className="text-lg sm:text-xl font-bold mb-2 group-hover:text-primary transition-colors">{product.title}</h3>
+                            <p className="text-muted-foreground text-sm mb-4 sm:mb-6 flex-1">{product.description}</p>
 
-                            <div className="flex flex-wrap gap-2 mb-6">
+                            <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4 sm:mb-6">
                                 {product.tags.map(tag => (
                                     <span key={tag} className="text-xs px-2 py-1 rounded-full bg-white/5 border border-white/10 text-gray-300">
                                         {tag}

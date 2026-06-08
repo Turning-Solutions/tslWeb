@@ -4,6 +4,7 @@ import { CustomerLogoSlider } from "@/components/home/tech-marquee";
 import { ReadyToShipProducts } from "@/components/home/ready-to-ship-products";
 import { FeaturedProducts } from "@/components/home/featured-projects";
 import { WhyChooseUs } from "@/components/home/why-choose-us";
+import { CallToAction } from "@/components/home/cta-section";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         <ReadyToShipProducts />
         <FeaturedProducts />
         <WhyChooseUs />
+        <CallToAction />
       </main>
     </div>
   );

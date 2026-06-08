@@ -10,7 +10,7 @@ export function GlassCard({ children, className, hoverEffect = false, variant = 
     return (
         <div
             className={cn(
-                "rounded-[32px] p-6 relative overflow-hidden transition-all duration-300",
+                "rounded-2xl sm:rounded-[32px] p-6 relative overflow-hidden transition-all duration-300",
                 variant === "default" && [
                     "backdrop-blur-3xl bg-white/5 border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.36)]",
                     "before:absolute before:inset-0 before:bg-linear-to-b before:from-white/5 before:to-transparent before:pointer-events-none",
