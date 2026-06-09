@@ -11,7 +11,7 @@ export const PRODUCTS: Product[] = [
     title: "Omniware.lk",
     description:
       "Premium custom PC builds and components: catalog search, categories, and a focused path from discovery to checkout.",
-    url: "https://omniware-web.vercel.app/",
+    url: "https://www.omniware.lk/",
     image: "/projects/omniware.png",
     tags: ["E-commerce", "Catalog", "Checkout"],
   },
