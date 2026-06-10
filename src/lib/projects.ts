@@ -23,4 +23,12 @@ export const PRODUCTS: Product[] = [
     image: "/projects/ceylon-spice-hub.png",
     tags: ["Retail", "Product Discovery", "UX"],
   },
+  {
+    title: "Island Safaris Sri Lanka",
+    description:
+      "A Safari booking platform for elephant safaris in Sri Lanka, with jeep reservations across Minneriya, Kaudulla, and Hurulu, cultural add-ons, PayPal advance payments, and a protected admin dashboard.",
+    url: "https://www.islandsafarisl.com/",
+    image: "/projects/islandsafari.png",
+    tags: ["Tourism", "Booking", "i18n"],
+  },
 ];
